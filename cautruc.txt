@@ -1,0 +1,18 @@
+
+Trang Chủ
+    1. Header:
+        - Navbar trên
+        - Navbar dưới
+    2. Content:
+        - Slide
+        - Hình ảnh nhỏ
+            + Các category
+        - Content nhỏ:
+            + Content nhỏ
+            + Silde nhỏ
+        - Hình ảnh nhỏ + help me choose
+        - Slide nhỏ cho freeship, ưu đãi, ..
+        - Sản phẩm hot
+            + Sản phẩm
+    3. Footer
+
