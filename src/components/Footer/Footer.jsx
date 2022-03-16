@@ -8,13 +8,13 @@ const Footer = () => {
     <div className="footer__wrapper">
       <div className="footer__container">
         <div className="footer__container__social">
-          <a href="https://www.instagram.com/estella.order/" className="footer__container__social__wrapper">
+          <a href="https://www.facebook.com/Vnlaptop" className="footer__container__social__wrapper">
             <FontAwesomeIcon className="footer__social__icon" icon={faInstagram} />
           </a>
-          <a href="https://www.facebook.com/estella.order" className="footer__container__social__wrapper">
+          <a href="https://www.facebook.com/Vnlaptop" className="footer__container__social__wrapper">
             <FontAwesomeIcon className="footer__social__icon" icon={faFacebook} />
           </a>
-          <a href="https://www.tiktok.com/@mynganha0303?" className="footer__container__social__wrapper">
+          <a href="https://www.facebook.com/Vnlaptop" className="footer__container__social__wrapper">
             <FontAwesomeIcon className="footer__social__icon" icon={faTiktok} />
           </a>
         </div>
@@ -45,19 +45,16 @@ const Footer = () => {
           </div>
           <div className="footer__address">
             <span className="footer__address__text__bold">Email: </span>
-            <p className="footer__address__text">hamyngan@gmail.com</p>
+            <p className="footer__address__text">phamvanduong@gmail.com</p>
           </div>
           <div className="footer__address">
             <span className="footer__address__text__bold">Địa chỉ: </span>
-            <p className="footer__address__text">290A Nguyễn Thị Minh Khai, Trà Vinh</p>
+            <p className="footer__address__text">25/47 Võ Văn Hát, Quận 9, HCM</p>
           </div>
         </div>
-        
       </div>
       <div className="footer__bottom">
-          <span className="footer__bottom__text">
-          © Estella, all rights reserved Terms of Use Privacy Policy Cookies Policy
-          </span>
+        <span className="footer__bottom__text">© Estella, all rights reserved Terms of Use Privacy Policy Cookies Policy</span>
       </div>
     </div>
   );
