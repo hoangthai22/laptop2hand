@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import CategoryStep from "./components/Content/CategoryStep/CategoryStep";
 import GoTop from "./components/Content/Home/GoTop/GoTop";
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Suspense fallback={<div>Loading ...</div>}>
-      <BrowserRouter>
+      <HashRouter>
         <AppProvider>
           <div className="header">
             <HeaderTop />
@@ -40,7 +40,7 @@ function App() {
             <GoTop />
           </div>
         </AppProvider>
-      </BrowserRouter>
+      </HashRouter>
     </Suspense>
   );
 }
