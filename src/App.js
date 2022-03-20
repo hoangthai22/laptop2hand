@@ -28,7 +28,7 @@ function App() {
   return (
     <PayPalScriptProvider options={{ "client-id": "AQ3yFoGFt32R4WK0FpyACQaq8yqYsDtEO0UBs_x1_dWNREeodvVmdtvQXTPX1s8bBWP-IYHLBeM7X7s9" }}>
       <Suspense fallback={<div>Loading ...</div>}>
-        <HashRouter>
+        <HashRouter >
           <AppProvider>
             <div className="header">
               <HeaderTop />
