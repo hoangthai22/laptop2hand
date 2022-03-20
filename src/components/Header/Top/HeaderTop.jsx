@@ -10,16 +10,20 @@ import { ReactComponent as IconSearch } from "./../../../assests/img/iconsearch.
 import "./../../../pages/main.scss";
 import "./HeaderTop.scss";
 const HeaderTop = (props) => {
-  const { Cart } = useContext(AppContext);
+  const { Cart, login, setlogin, islogin } = useContext(AppContext);
   const [countCart, setcountCart] = useState(0);
+  // const [user, setuser] = useState("");
   const history = useNavigate();
 
   useEffect(() => {
     setcountCart(Cart.length);
+   
+    // setuser(user);
   }, [Cart]);
 
   useEffect(() => {
     const carts = JSON.parse(localStorage.getItem(LOCALSTORAGE_NAME));
+
     setcountCart(carts?.length ? carts?.length : 0);
   }, []);
   const handeChageCartPage = () => {
@@ -33,13 +37,14 @@ const HeaderTop = (props) => {
           <input className="header__top__content__search__input"></input>
           <IconSearch className="header__top__content__search__icon" />
         </div>
-        <div className="header__top__content__cart" onClick={handeChageCartPage}>
-        <FontAwesomeIcon icon={faCartPlus} style={{ marginRight: 5 }} /> 
+        <div className="header__top__content__cart">
+          <FontAwesomeIcon icon={faCartPlus} style={{ marginRight: 5 }} />
           {/* <IconCart className="header__top__content__cart__icon" /> */}
-          <span>Giỏ hàng ({countCart})</span>
+          <span onClick={handeChageCartPage}>Giỏ hàng ({countCart})</span>
+          <span onClick={() => history("/login")}>{login != null ? login : "Đăng nhập"}</span>
         </div>
       </div>
-      <div className="header__top__content__Logo">
+      <div className="header__top__content__Logo" onClick={() => history("/")}>
         <img src="https://mcdn.nhanh.vn/store/22767/logo_1638966470_logo%20chu%CC%9B%CC%83%20tra%CC%86%CC%81ng-04.png" className="logo" />
       </div>
     </div>

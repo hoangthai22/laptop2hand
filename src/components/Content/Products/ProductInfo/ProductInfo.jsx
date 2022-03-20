@@ -135,7 +135,7 @@ const ProductInfo = (props) => {
         {
           id: _id,
           quantity: countQuantity,
-          price: price,
+          price: price - (price * sale) / 100,
           color: colorActive,
           size: indexActive,
           name: productName,

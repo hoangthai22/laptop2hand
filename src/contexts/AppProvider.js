@@ -8,6 +8,8 @@ export default function AppProvider({ children }) {
   const [currentPage, setCurrentPage] = useState("");
   const [listProducts, setlistProducts] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
+  const [login, setlogin] = useState("");
+  const [islogin, setislogin] = useState(false);
   const [Cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -15,18 +17,26 @@ export default function AppProvider({ children }) {
       setCategoryList(res.data);
     });
     setlistProducts(productList);
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    setlogin(user);
   }, []);
- 
+
   return (
     <AppContext.Provider
       value={{
         currentPage,
         setCurrentPage,
         listProducts,
+        login,
+        setlogin,
         setlistProducts,
         categoryList,
+        islogin,
+        setislogin,
         setCategoryList,
-        Cart, setCart
+        Cart,
+        setCart,
       }}
     >
       {children}

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { Categorys } from "../../../constants/DataMock";
-import { HOME_PAGE, CATEGORY_PAGE, PRODUCT_DETAIL } from "../../../constants/Pages";
+import { HOME_PAGE, CATEGORY_PAGE, PRODUCT_DETAIL, HISTORY_PAGE } from "../../../constants/Pages";
 import { AppContext } from "../../../contexts/AppProvider";
 import "./CategoryStep.scss";
 
@@ -28,6 +28,7 @@ const CategoryStep = (props) => {
   return (
     <div className="category__step__wrapper">
       <span onClick={() => handleRediret(HOME_PAGE)}>Home</span>
+      <span>{currentPage == HISTORY_PAGE && "History"}</span>
       <span onClick={() => handleRediret(CATEGORY_PAGE)}>
         {(currentPage === PRODUCT_DETAIL && location?.pathname !== "/") || (currentPage === CATEGORY_PAGE && location?.pathname !== "/")
           ? getCategoryNameFromSlug(location?.pathname?.slice(1).split("/")[0])
