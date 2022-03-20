@@ -1,5 +1,6 @@
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React, { Suspense, useState } from "react";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import CategoryStep from "./components/Content/CategoryStep/CategoryStep";
@@ -42,7 +43,7 @@ function App() {
               <Route path={`/history`} element={<HistoryPage callbackFunc={changeCurrentPage} />} />
               <Route path={`/login`} element={<Login />} />
             </Routes>
-            <MessengerCustomerChat pageId="<110301904951762>" appId="<APP_ID>" htmlRef="<REF_STRING>" />,
+            <MessengerCustomerChat pageId="110301904951762" appId="404542331036046" />,
             <div className="footer">
               <Footer />
               <GoTop />
