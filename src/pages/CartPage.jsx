@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import CartList from "../components/Cart/CartList/CartList";
 import { CART_PAGE } from "../constants/Pages";
@@ -7,9 +6,9 @@ import { AppContext } from "../contexts/AppProvider";
 import "./main.scss";
 
 function CartPage(props) {
-  const { currentPage, setCurrentPage } = useContext(AppContext);
+  const {  setCurrentPage } = useContext(AppContext);
 
-  const location = useLocation();
+ 
 
   useEffect(() => {
     props.callbackFunc(CART_PAGE);

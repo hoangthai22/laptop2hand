@@ -5,19 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { LOCALSTORAGE_NAME } from "../../../constants/Pages";
 import { AppContext } from "../../../contexts/AppProvider";
-import { ReactComponent as IconCart } from "./../../../assests/img/iconCart.svg";
 import { ReactComponent as IconSearch } from "./../../../assests/img/iconsearch.svg";
 import "./../../../pages/main.scss";
 import "./HeaderTop.scss";
 const HeaderTop = (props) => {
-  const { Cart, login, setlogin, islogin } = useContext(AppContext);
+  const { Cart, login } = useContext(AppContext);
   const [countCart, setcountCart] = useState(0);
   // const [user, setuser] = useState("");
   const history = useNavigate();
 
   useEffect(() => {
     setcountCart(Cart.length);
-   
+
     // setuser(user);
   }, [Cart]);
 
@@ -45,7 +44,7 @@ const HeaderTop = (props) => {
         </div>
       </div>
       <div className="header__top__content__Logo" onClick={() => history("/")}>
-        <img src="https://mcdn.nhanh.vn/store/22767/logo_1638966470_logo%20chu%CC%9B%CC%83%20tra%CC%86%CC%81ng-04.png" className="logo" />
+        <img alt="" src="https://mcdn.nhanh.vn/store/22767/logo_1638966470_logo%20chu%CC%9B%CC%83%20tra%CC%86%CC%81ng-04.png" className="logo" />
       </div>
     </div>
   );

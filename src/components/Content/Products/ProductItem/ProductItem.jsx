@@ -4,7 +4,7 @@ import { caculatorSale, caculatorVND } from "../../../../constants/Caculator";
 import "./ProductItem.scss";
 
 const ProductItem = (props) => {
-  const { sale, productImg, productName, price, slug, category, id } = props.data;
+  const { sale, productImg, productName, price, slug, id } = props.data;
   const { isDetaiPage } = props;
 
   const history = useNavigate();
@@ -12,7 +12,7 @@ const ProductItem = (props) => {
 
   const handleProductDeatail = () => {
   
-    if (location.pathname == "/" || isDetaiPage) {
+    if (location.pathname === "/" || isDetaiPage) {
       // history(`/ASUS/${slug}_${id}`, { state: { product: props.data } });
     } else {
       history(`${location.pathname}/${slug}_${id}`, { state: { product: props.data } });

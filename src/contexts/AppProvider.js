@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getListCategory } from "../apis/apiCaller";
-import { Categorys, productList } from "../constants/DataMock";
+import { productList } from "../constants/DataMock";
 
 export const AppContext = React.createContext();
 

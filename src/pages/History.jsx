@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { caculatorVND } from "../constants/Caculator";
 import { HISTORY_PAGE, LOCALSTORAGE_NAME } from "../constants/Pages";
@@ -9,11 +7,11 @@ import { AppContext } from "../contexts/AppProvider";
 import "./history.scss";
 
 function HistoryPage(props) {
-  const { currentPage, setCurrentPage } = useContext(AppContext);
-  const { Cart, setCart } = useContext(AppContext);
+  const { setCurrentPage } = useContext(AppContext);
+  const { Cart } = useContext(AppContext);
   const [listCart, setlistCart] = useState([]);
-  const location = useLocation();
-  const [total, setTotal] = useState(0);
+
+  const [, setTotal] = useState(0);
 
   useEffect(() => {
     props.callbackFunc(HISTORY_PAGE);
@@ -23,6 +21,7 @@ function HistoryPage(props) {
     const CartList = JSON.parse(localStorage.getItem(LOCALSTORAGE_NAME));
     var totalPrice = 0;
     console.log({ Cart });
+    // eslint-disable-next-line array-callback-return
     CartList.map((item) => {
       totalPrice = item.price + totalPrice;
     });

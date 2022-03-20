@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { getProduct } from "../apis/apiCaller";
-import HelpMeChoose from "../components/Content/Home/HelpMeChoose/HelpMeChoose";
 import HotProduct from "../components/Content/Home/HotProduct/HotProduct";
 import ProductDetail from "../components/Content/Products/ProductDetail/ProductDetail";
 import ProductInfo from "../components/Content/Products/ProductInfo/ProductInfo";
@@ -11,7 +10,7 @@ import { AppContext } from "../contexts/AppProvider";
 import "./main.scss";
 
 function ProductDetailPage(props) {
-  const { currentPage, setCurrentPage } = useContext(AppContext);
+  const { setCurrentPage } = useContext(AppContext);
   const [product, setProduct] = useState({});
   const location = useLocation();
 
@@ -42,7 +41,7 @@ function ProductDetailPage(props) {
         <ProductInfo data={product} callbackFunc={changeCurrentImg} />
       </div>
       {/* <HelpMeChoose /> */}
-      <HotProduct isDetaiPage={true}/>
+      <HotProduct isDetaiPage={true} />
     </div>
   );
 }

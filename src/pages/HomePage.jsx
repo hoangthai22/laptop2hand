@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useEffect } from "react/cjs/react.development";
-import HelpMeChoose from "../components/Content/Home/HelpMeChoose/HelpMeChoose";
 import HotProduct from "../components/Content/Home/HotProduct/HotProduct";
 import ListCategory from "../components/Content/Home/ListCategory/ListCategory";
 import Policy from "../components/Content/Home/Policy/Policy";
@@ -10,7 +9,7 @@ import { AppContext } from "../contexts/AppProvider";
 import "./main.scss";
 
 function HomePage(props) {
-  const { currentPage, setCurrentPage } = useContext(AppContext);
+  const {  setCurrentPage } = useContext(AppContext);
   useEffect(() => {
     props.callbackFunc(HOME_PAGE);
     setCurrentPage(HOME_PAGE);

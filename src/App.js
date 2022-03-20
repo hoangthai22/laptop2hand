@@ -1,6 +1,5 @@
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React, { Suspense, useState } from "react";
-import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import CategoryStep from "./components/Content/CategoryStep/CategoryStep";
@@ -17,7 +16,6 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/login";
 import ProductDetailPage from "./pages/ProductDetailPage";
 
-
 function App() {
   const [currentPageApp, setCurrentPageApp] = useState("");
 
@@ -28,7 +26,7 @@ function App() {
   return (
     <PayPalScriptProvider options={{ "client-id": "AQ3yFoGFt32R4WK0FpyACQaq8yqYsDtEO0UBs_x1_dWNREeodvVmdtvQXTPX1s8bBWP-IYHLBeM7X7s9" }}>
       <Suspense fallback={<div>Loading ...</div>}>
-        <HashRouter >
+        <HashRouter>
           <AppProvider>
             <div className="header">
               <HeaderTop />
@@ -43,7 +41,6 @@ function App() {
               <Route path={`/history`} element={<HistoryPage callbackFunc={changeCurrentPage} />} />
               <Route path={`/login`} element={<Login />} />
             </Routes>
-            <MessengerCustomerChat pageId="110301904951762" appId="404542331036046" />,
             <div className="footer">
               <Footer />
               <GoTop />

@@ -1,7 +1,7 @@
-import { faCaretLeft, faCaretRight, faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { caculatorSale, caculatorVND } from "../../../../constants/Caculator";
 import { LOCALSTORAGE_NAME } from "../../../../constants/Pages";
@@ -9,13 +9,12 @@ import { AppContext } from "../../../../contexts/AppProvider";
 import "./ProductInfo.scss";
 
 const ProductInfo = (props) => {
-  const { Cart, setCart } = useContext(AppContext);
+  const { setCart } = useContext(AppContext);
   const { productName, price, size, totalSize, sale, _id, productImg, description } = props.data;
   const [indexActive, setIndexActive] = useState(0);
   const [colorActive, setColorActive] = useState("");
   const [countQuantity, setcountQuantity] = useState(1);
   const [sizeListCurrent, setSizeListCurrent] = useState([]);
-  const [isValidForm, setisValidForm] = useState(true);
 
   useEffect(() => {
     setSizeListCurrent(totalSize);
@@ -23,73 +22,7 @@ const ProductInfo = (props) => {
 
   useEffect(() => {
     props.callbackFunc(size ? size[0]?.imgTitle : "");
-  }, []);
-
-  const handleChangeIndexSize = (size) => {
-    if (size === indexActive) {
-      setIndexActive(0);
-    } else {
-      setIndexActive(size);
-      compareSizeWithColor(size);
-    }
-  };
-
-  const handleChangeColor = (color) => {
-    let imgUrl = "";
-    let sizeList = [];
-    if (color === colorActive) {
-      setColorActive("");
-      setSizeListCurrent(totalSize);
-    } else {
-      setTimeout(() => {
-        size?.map((item) => {
-          if (item.color === color) {
-            sizeList = item.listSize;
-            imgUrl = item.imgTitle;
-            return true;
-          }
-        });
-        props.callbackFunc(imgUrl);
-        setSizeListCurrent(sizeList);
-        setColorActive(color);
-      }, 10);
-    }
-  };
-
-  const compareSizeWithColor = () => {
-    let result = [];
-    size?.map((size) => {
-      size?.listSize?.map((item) => {
-        if (item?.sizeName === indexActive) {
-          if (item?.quantity === 0) {
-            result = [...result, true];
-          } else {
-            result = [...result, false];
-          }
-        }
-      });
-    });
-    return result;
-  };
-
-  const getCountQuantity = () => {
-    let count = 0;
-    sizeListCurrent?.map((item) => {
-      if (item.sizeName === indexActive) {
-        count = item.quantity;
-      }
-    });
-    return count;
-  };
-
-  function handleChange(e) {
-    const { value } = e.target;
-    if (value > getCountQuantity()) {
-      setcountQuantity(parseInt(getCountQuantity()));
-    } else if (value < 1) {
-      setcountQuantity(parseInt(1));
-    } else setcountQuantity(parseInt(value));
-  }
+  });
 
   const handleAddCart = () => {
     // let isValid = true;
@@ -147,16 +80,6 @@ const ProductInfo = (props) => {
     } else {
       setCart([...newCarts]);
       localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify([...newCarts]));
-    }
-  };
-
-  const handleChangeQuantity = () => {
-    if (colorActive !== "" && indexActive > 0) {
-      if (countQuantity >= getCountQuantity()) {
-        setcountQuantity(parseInt(getCountQuantity()));
-        return;
-      }
-      countQuantity > 0 && setcountQuantity(countQuantity + 1);
     }
   };
 

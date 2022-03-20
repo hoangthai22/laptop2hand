@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contexts/AppProvider";
 import "./login.scss";
 
 const Login = () => {
-  const { Cart, login, setlogin, islogin, setislogin } = useContext(AppContext);
+  const { setlogin, setislogin } = useContext(AppContext);
   const history = useNavigate();
   const submit = () => {
     setislogin(true);
